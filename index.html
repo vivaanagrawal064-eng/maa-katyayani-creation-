@@ -8,258 +8,480 @@
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      box-sizing: border-box;
     }
 
     body {
-      background: #f7f3ee;
-      color: #222;
+      font-family: Arial, sans-serif;
+      background: #f7f2ec;
+      color: #241b16;
     }
 
+    /* HEADER */
     header {
-      background: #6d1b1b;
+      background: linear-gradient(135deg, #3b160d, #7b2e16);
       color: white;
       text-align: center;
-      padding: 28px 15px;
+      padding: 45px 15px;
     }
 
     header h1 {
-      font-size: 30px;
-      margin-bottom: 8px;
+      font-size: clamp(28px, 7vw, 48px);
+      letter-spacing: 1px;
     }
 
     header p {
-      font-size: 15px;
+      margin-top: 12px;
+      font-size: 17px;
       opacity: 0.9;
     }
 
-    .hero {
-      text-align: center;
-      padding: 45px 20px;
-      background: white;
-    }
-
-    .hero h2 {
-      font-size: 32px;
-      color: #6d1b1b;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      font-size: 17px;
-      color: #555;
-    }
-
-    .products {
-      padding: 35px 18px;
-      max-width: 1100px;
+    /* MAIN */
+    .container {
+      max-width: 1200px;
       margin: auto;
+      padding: 30px 15px;
     }
 
-    .products h2 {
+    .section-title {
       text-align: center;
-      color: #6d1b1b;
-      margin-bottom: 25px;
-      font-size: 28px;
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #4a2113;
     }
 
-    .grid {
+    /* PRODUCTS */
+    .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+      );
+      gap: 22px;
     }
 
-    .card {
+    .product-card {
       background: white;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.13);
+      transition: 0.25s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: contain;
+      background: white;
+      padding: 10px;
+    }
+
+    .product-info {
+      padding: 18px;
+    }
+
+    .product-info h2 {
+      font-size: 20px;
+      color: #3b160d;
+    }
+
+    .product-info p {
+      margin-top: 7px;
+      color: #765b4b;
+    }
+
+    /* CONTACT */
+    .contact {
+      margin-top: 40px;
+      background: white;
+      border-radius: 18px;
+      padding: 30px 15px;
       text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .contact h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: #3b160d;
+    }
+
+    .contact p {
+      margin-bottom: 18px;
+      color: #765b4b;
+    }
+
+    .call-button {
+      display: inline-block;
+      background: #7b2e16;
+      color: white;
+      text-decoration: none;
+      padding: 13px 25px;
+      border-radius: 10px;
+      font-size: 20px;
+      font-weight: bold;
       transition: 0.2s;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
+    .call-button:hover {
+      background: #4f1b0e;
+      transform: scale(1.03);
     }
 
-    .product-icon {
-      height: 150px;
-      background: #eee5dc;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 55px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      color: #333;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: #666;
-      margin-bottom: 15px;
-    }
-
-    .contact-btn {
+    /* WHATSAPP */
+    .whatsapp-button {
       display: inline-block;
-      background: #6d1b1b;
+      margin-top: 12px;
+      background: #25d366;
       color: white;
       text-decoration: none;
-      padding: 11px 18px;
-      border-radius: 25px;
+      padding: 13px 25px;
+      border-radius: 10px;
+      font-size: 18px;
       font-weight: bold;
     }
 
-    .contact-btn:hover {
-      background: #4f1111;
-    }
-
-    .about {
-      background: #fff;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .about h2 {
-      color: #6d1b1b;
-      margin-bottom: 15px;
-    }
-
-    .about p {
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.7;
-      color: #555;
-    }
-
+    /* FOOTER */
     footer {
       background: #321010;
       color: white;
       text-align: center;
-      padding: 25px 15px;
-      margin-top: 30px;
+      padding: 28px 15px;
+      margin-top: 40px;
     }
 
-    .product-image {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  border-radius: 12px;
+    footer p {
+      margin: 5px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 500px) {
+
+      header {
+        padding: 35px 12px;
+      }
+
+      header h1 {
+        font-size: 29px;
+      }
+
+      header p {
+        font-size: 14px;
+      }
+
+      .section-title {
+        font-size: 27px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card img {
+        height: 280px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header>
+
     <h1>MAA KATYAYANI CREATION</h1>
-    <p>Quality Products • Trusted Service</p>
+
+    <p>
+      Quality Products • Trusted Service • Easy Shopping
+    </p>
+
   </header>
 
-  <section class="hero">
-    <h2>Welcome to Our Store</h2>
-    <p>Explore our range of useful and quality products.</p>
-  </section>
 
-  <section class="products">
-    <h2>Our Products</h2>
+  <!-- MAIN CONTENT -->
+  <main class="container">
 
-    <div class="grid">
+    <h2 class="section-title">
+      Our Products
+    </h2>
 
-      <div class="card">
-        <div class="product-icon">
-  <img src="IMG-20260919-WA0009.jpg" alt="Perfume Small" class="product-image">
+
+    <section class="products">
+
+
+      <!-- PERFUME -->
+      <div class="product-card">
+
+        <img
+          src="images/1000054173.jpg"
+          alt="Perfume Collection"
+        >
+
+        <div class="product-info">
+
+          <h2>Perfume Collection</h2>
+
+          <p>
+            Different fragrance varieties available.
+          </p>
+
         </div>
-        <h3>Perfume Small</h3>
-        <p>Pack of 12 pieces</p>
-        <a class="contact-btn" href="#contact">Contact Us</a>
+
       </div>
 
-      <div class="card">
-        <div class="product-icon">🌺</div>
-        <h3>Perfume Big</h3>
-        <p>Pack of 16 pieces</p>
-        <a class="contact-btn" href="#contact">Contact Us</a>
+
+      <!-- B7000 -->
+      <div class="product-card">
+
+        <img
+          src="images/1000054170.jpg"
+          alt="B-7000 Glue"
+        >
+
+        <div class="product-info">
+
+          <h2>B-7000 Glue</h2>
+
+          <p>
+            Multi-purpose adhesive.
+          </p>
+
+        </div>
+
       </div>
 
-      <div class="card">
-        <div class="product-icon">✨</div>
-        <h3>Perfume Spray</h3>
-        <p>Pack of 6 pieces</p>
-        <a class="contact-btn" href="#contact">Contact Us</a>
+
+      <!-- JUPITER 10 -->
+      <div class="product-card">
+
+        <img
+          src="images/1000054161.jpg"
+          alt="Jupiter Scissor 10 Inch"
+        >
+
+        <div class="product-info">
+
+          <h2>Jupiter Scissor 10 Inch</h2>
+
+          <p>
+            Quality cutting scissors.
+          </p>
+
+        </div>
+
       </div>
 
-      <div class="card">
-        <div class="product-icon">🔧</div>
-        <h3>B7000 Glue Big</h3>
-        <p>Strong adhesive</p>
-        <a class="contact-btn" href="#contact">Contact Us</a>
+
+      <!-- PERFUME COLLECTION -->
+      <div class="product-card">
+
+        <img
+          src="images/1000054176.jpg"
+          alt="Perfume Collection"
+        >
+
+        <div class="product-info">
+
+          <h2>Perfume Collection</h2>
+
+          <p>
+            Multiple fragrance options.
+          </p>
+
+        </div>
+
       </div>
 
-      <div class="card">
-        <div class="product-icon">🔧</div>
-        <h3>B7000 Glue Medium</h3>
-        <p>Strong adhesive</p>
-        <a class="contact-btn" href="#contact">Contact Us</a>
+
+      <!-- B7000 -->
+      <div class="product-card">
+
+        <img
+          src="images/1000054164.jpg"
+          alt="B-7000 Adhesive"
+        >
+
+        <div class="product-info">
+
+          <h2>B-7000 Adhesive</h2>
+
+          <p>
+            Strong multi-purpose adhesive.
+          </p>
+
+        </div>
+
       </div>
 
-      <div class="card">
-        <div class="product-icon">🔧</div>
-        <h3>B7000 Glue Small</h3>
-        <p>Strong adhesive</p>
-        <a class="contact-btn" href="#contact">Contact Us</a>
+
+      <!-- B7000 PACK -->
+      <div class="product-card">
+
+        <img
+          src="images/1000054166.jpg"
+          alt="B-7000 Glue"
+        >
+
+        <div class="product-info">
+
+          <h2>B-7000 Glue</h2>
+
+          <p>
+            Available in different sizes.
+          </p>
+
+        </div>
+
       </div>
 
-      <div class="card">
-        <div class="product-icon">✂️</div>
-        <h3>Jupiter Scissor 12"</h3>
-        <p>Quality scissors</p>
-        <a class="contact-btn" href="#contact">Contact Us</a>
+
+      <!-- CLOTH NET -->
+      <div class="product-card">
+
+        <img
+          src="images/1000054168.jpg"
+          alt="Multicolour Cloth Net"
+        >
+
+        <div class="product-info">
+
+          <h2>Multicolour Cloth Net</h2>
+
+          <p>
+            Beautiful colours and designs.
+          </p>
+
+        </div>
+
       </div>
 
-      <div class="card">
-        <div class="product-icon">✂️</div>
-        <h3>Jupiter Scissor 10"</h3>
-        <p>Quality scissors</p>
-        <a class="contact-btn" href="#contact">Contact Us</a>
+
+      <!-- 12 INCH SCISSOR -->
+      <div class="product-card">
+
+        <img
+          src="images/1000054155.jpg"
+          alt="Tailoring Scissor 12 Inch"
+        >
+
+        <div class="product-info">
+
+          <h2>Tailoring Scissor 12 Inch</h2>
+
+          <p>
+            Suitable for tailoring work.
+          </p>
+
+        </div>
+
       </div>
 
-      <div class="card">
-        <div class="product-icon">✂️</div>
-        <h3>Jupiter Scissor 9"</h3>
-        <p>Quality scissors</p>
-        <a class="contact-btn" href="#contact">Contact Us</a>
+
+      <!-- JUPITER 9 -->
+      <div class="product-card">
+
+        <img
+          src="images/1000054159.jpg"
+          alt="Jupiter Scissor 9 Inch"
+        >
+
+        <div class="product-info">
+
+          <h2>Jupiter Scissor 9 Inch</h2>
+
+          <p>
+            Compact and useful cutting scissor.
+          </p>
+
+        </div>
+
       </div>
 
-      <div class="card">
-        <div class="product-icon">🧵</div>
-        <h3>Cloth Net Multicolour</h3>
-        <p>4.5 meter</p>
-        <a class="contact-btn" href="#contact">Contact Us</a>
+
+      <!-- PERFUME SPRAY -->
+      <div class="product-card">
+
+        <img
+          src="images/1000054149.jpg"
+          alt="Perfume Spray"
+        >
+
+        <div class="product-info">
+
+          <h2>Perfume Spray</h2>
+
+          <p>
+            Fragrance spray available.
+          </p>
+
+        </div>
+
       </div>
 
-    </div>
-  </section>
 
-  <section class="about">
-    <h2>About Us</h2>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact">
+
+      <h2>
+        Contact & Orders
+      </h2>
+
+      <p>
+        Call us for product availability and orders.
+      </p>
+
+
+      <!-- CALL BUTTON -->
+      <a
+        class="call-button"
+        href="tel:9639209263"
+      >
+        📞 9639209263
+      </a>
+
+
+      <br>
+
+
+      <!-- WHATSAPP BUTTON -->
+      <a
+        class="whatsapp-button"
+        href="https://wa.me/919639209263"
+        target="_blank"
+      >
+        💬 WhatsApp Us
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
     <p>
-      MAA KATYAYANI CREATION provides a range of useful products
-      with a focus on quality and customer service.
+      © 2026 MAA KATYAYANI CREATION
     </p>
-  </section>
 
-  <footer id="contact">
-    <h2>Contact Us</h2>
-    <p>MAA KATYAYANI CREATION</p>
-    <p>For product details and orders, contact us directly.</p>
-    <p>© 2026 MAA KATYAYANI CREATION</p>
+    <p>
+      All Rights Reserved
+    </p>
+
+    <p>
+      Contact: 9639209263
+    </p>
+
   </footer>
 
 </body>
